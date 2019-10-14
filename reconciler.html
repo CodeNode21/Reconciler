@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reconciler</title>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link res='stylesheet' href="style.css">
+    
+</head>
+<body>
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Reconciler</h1>
+                  <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+              </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+              <input type="file" id="fileinput" />  
+              <hr>
+              <textarea rows=20 cols=33 id="area">
+                </textarea>	
+            </div>
+            <div class="col-sm">
+              <input type="file" id="fileinput" />  
+              <hr>
+              <textarea rows=20 cols=33 id="area">
+              </textarea>	
+            </div>
+            <div class="col-sm">
+              <input type="file" id="fileinput" />  
+              
+              <hr><textarea rows=20 cols=33 id="area">
+                </textarea>	
+            </div>
+        </div>
+    </div>
+
+    <div class="reportArea">
+
+    </div>
+	<script type='text/javascript' src='./logic.js'></script>
+	<script type="text/javascript">
+		function loadDoc(){
+				console.log("clicked load");
+		}
+		function readfile() {
+			document.getElementById('iframe');//contentDocument.body.firstChild.innerHTML;
+		}
+
+	</script>
+    
+</body>
+</html>
