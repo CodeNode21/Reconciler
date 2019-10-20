@@ -13,12 +13,12 @@ $(document).ready(function(){
             r.onload = function(e){
                 let contents = e.target.result;
                 //console.log(contents);
-                // alert(`File loaded.
-                // name: ${f.name}
-                // type: ${f.type}
-                // size: ${f.size} 
-                // starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                // `);
+                 alert(`File loaded.
+                 name: ${f.name}
+                 type: ${f.type}
+                 size: ${f.size} 
+                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                 `);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area1").value = contents;
@@ -38,12 +38,12 @@ $(document).ready(function(){
             r.onload = function(e){
                 let contents = e.target.result;
                 //console.log(contents);
-                // alert(`File loaded.
-                // name: ${f.name}
-                // type: ${f.type}
-                // size: ${f.size} 
-                // starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                // `);
+                 alert(`File loaded.
+                 name: ${f.name}
+                 type: ${f.type}
+                 size: ${f.size} 
+                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                 `);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area2").value = contents;
@@ -63,12 +63,12 @@ $(document).ready(function(){
             r.onload = function(e){
                 let contents = e.target.result;
                 //console.log(contents);
-                // alert(`File loaded.
-                // name: ${f.name}
-                // type: ${f.type}
-                // size: ${f.size} 
-                // starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                // `);
+                 alert(`File loaded.
+                 name: ${f.name}
+                 type: ${f.type}
+                 size: ${f.size} 
+                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                 `);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area3").value = contents;
@@ -86,13 +86,12 @@ let file1 = "";
 let file2 = "";
 let file3 = "";
 
-function loadFile(evt) {
-	let f = evt.target.files[0];
-	if (f) {
-		let r = new FileReader();
-		r.onload = function(e) {
-			let contents = e.target.result;
-		}
-		r.readAsText(f);
+document.getElementById("runReport").addEventListener("click", sendFiles, false);
+function sendFiles() {
+	if(!file1) throw new Error("
+	if(file1=="undefined" || file2=="undefined" || file3=="undefined"){
+		alert("please load files for reconciliation")
+	} else {
+		alert("Working on files")
 	}
 }
