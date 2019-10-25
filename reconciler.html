@@ -26,19 +26,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4">Statement
               <input type="file" id="fileinput1" />  
               <hr>
               <textarea rows=20 cols=33 id="area1">
                 </textarea>	
             </div>
-            <div class="col-4">
+            <div class="col-4">Entered Payables
               <input type="file" id="fileinput2" />  
               <hr>
               <textarea rows=20 cols=33 id="area2">
               </textarea>	
             </div>
-            <div class="col-4">
+            <div class="col-4">Payment History
               <input type="file" id="fileinput3" />  
               <hr>
               <textarea rows=20 cols=33 id="area3">
@@ -48,13 +48,19 @@
     </div>
 	<hr>
 	<div class="container">
-		<div class="reportArea col">
-			<button id="runReport"> Run Report </button>
+		<div class="col">
+			<button id="runReportLS"> Run Report via LocalStorage </button>
+			<button id="runReportFB"> Run Report via FireBase</button>
+			<button id="runReportMS"> Run Report via MySQL</button>
 			<p> The following area will display report results</p>
 			<p> Vendor Id and uploaded files totals (clicking on this field expands section down for more details.
+			<div id="reportArea">
+			</div>
 		</div>
 	</div>
-	<script type='text/javascript' src='./logic.js'></script>
+	<script type='text/javascript' src='./datahandlers/localstorage.js'></script>
+	<script type='text/javascript' src='./datahandlers/logic.js'></script>
+
 	<script type="text/javascript">
 		// function loadDoc(){
 		// 		console.log("clicked load");
@@ -63,7 +69,17 @@
 		// 	document.getElementById('iframe');/contentDocument.body.firstChild.innerHTML;
 		// }
 
-	</script>
+  </script>
+  <!-- FireBase -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.2.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
     
 </body>
 </html>

@@ -1,5 +1,8 @@
+//import { LocalStorage } from "./datahandlers/localstorage";
+//import Firebase from "./datahandlers/firebase.js";
+
+
 $(document).ready(function(){
-    console.log("ready");
 
     document.getElementById("fileinput1").addEventListener("change", readFile1, false);
     document.getElementById("fileinput2").addEventListener("change", readFile2, false);
@@ -12,17 +15,19 @@ $(document).ready(function(){
             console.log(r);
             r.onload = function(e){
                 let contents = e.target.result;
+				//contents.push("<li><strong>", escape(f.name), "</strong>")
                 //console.log(contents);
-                 alert(`File loaded.
-                 name: ${f.name}
-                 type: ${f.type}
-                 size: ${f.size} 
-                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                 `);
+                 //alert(`File loaded.
+                // name: ${f.name}
+                // type: ${f.type}
+                // size: ${f.size} 
+                 //starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                // `);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area1").value = contents;
-				file1 = contents;
+                file1 = contents;
+                localStorage.setItem("file1", file1)
 	
             }
             r.readAsText(f);
@@ -38,12 +43,12 @@ $(document).ready(function(){
             r.onload = function(e){
                 let contents = e.target.result;
                 //console.log(contents);
-                 alert(`File loaded.
-                 name: ${f.name}
-                 type: ${f.type}
-                 size: ${f.size} 
-                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                 `);
+                 //alert(`File loaded.
+                 //name: ${f.name}
+                 //type: ${f.type}
+                 //size: ${f.size} 
+                 //starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                 //`);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area2").value = contents;
@@ -63,12 +68,12 @@ $(document).ready(function(){
             r.onload = function(e){
                 let contents = e.target.result;
                 //console.log(contents);
-                 alert(`File loaded.
-                 name: ${f.name}
-                 type: ${f.type}
-                 size: ${f.size} 
-                 starts with: ${contents.substr(1, contents.indexOf("\n"))}
-                 `);
+                 //alert(`File loaded.
+                 //name: ${f.name}
+                 //type: ${f.type}
+                 //size: ${f.size} 
+                 //starts with: ${contents.substr(1, contents.indexOf("\n"))}
+                // `);
                 //let area = this.options[this.selectedIndex].value;
                 //alert(area)
                 document.getElementById("area3").value = contents;
@@ -85,13 +90,14 @@ $(document).ready(function(){
 let file1 = "";
 let file2 = "";
 let file3 = "";
+let first = "first file";
+let second = "second file";
+let third = "third file";
 
-document.getElementById("runReport").addEventListener("click", sendFiles, false);
-function sendFiles() {
-	if(!file1) throw new Error("
-	if(file1=="undefined" || file2=="undefined" || file3=="undefined"){
-		alert("please load files for reconciliation")
-	} else {
-		alert("Working on files")
-	}
-}
+
+//document.getElementById("runReportLS").addEventListener("click", lsButton, false);
+//function lsButton(first, second, third) {
+	//console.log("LS button clicked");
+	//$("#reportArea").empty();
+
+//}
