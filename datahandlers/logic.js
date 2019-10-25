@@ -64,8 +64,10 @@ $(document).ready(function(){
         let f = evt.target.files[0];
         if (f) {
             let r = new FileReader();
-            console.log(r);
+            console.log('Loading', r.readyState);
+			
             r.onload = function(e){
+				console.log('Done', r.readyState);
                 let contents = e.target.result;
                 //console.log(contents);
                  //alert(`File loaded.
@@ -95,9 +97,4 @@ let second = "second file";
 let third = "third file";
 
 
-//document.getElementById("runReportLS").addEventListener("click", lsButton, false);
-//function lsButton(first, second, third) {
-	//console.log("LS button clicked");
-	//$("#reportArea").empty();
 
-//}

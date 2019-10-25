@@ -7,12 +7,12 @@ $(document).ready(function(){
 let LocalStorage = (file1, file2, file3) => {
 	//console.log(file1, file2, file3)
 	//Handle file1 (Statement)
-	let statement = file1;
 	console.log(file1.length);
-	console.log(file1.isArray)
+	
+	console.log(file1.isArray);
 	let arr = [];
-	for (var i=0; i<file1.length; i++){
-	}
+	//arr = file.map('"' = '');
+	console.log(arr);
 	//Handle file2 (Payables)
 	
 	//Handle file3 (Payments)
@@ -36,3 +36,8 @@ function lsButton() {
 
 }
 })
+
+function parseCSV(file, delimiter, callback){
+	
+	
+}
