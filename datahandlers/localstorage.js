@@ -10,9 +10,10 @@ let LocalStorage = (file1, file2, file3) => {
 	//console.log(file1, file2, file3)
 	//Handle file1 (Statement)
 	console.log(file1.length);
-	
-	console.log(file1.isArray);
+
 	parseCSV(file1);
+	parseCSV(file2);
+	parseCSV(file3);
 	//Handle file2 (Payables)
 	
 	//Handle file3 (Payments)
