@@ -1,0 +1,19 @@
+{
+  "name": "reconciler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeNode21/Reconciler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeNode21/Reconciler/issues"
+  },
+  "homepage": "https://github.com/CodeNode21/Reconciler#readme"
+}
