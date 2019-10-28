@@ -4,16 +4,18 @@ let thirdLS = "LS third file";
 //var csv require('csv');
 //var obj csv();
 
-$(document).ready(function(){
-	console.log("ready from localstorage file");
-let LocalStorage = (file1, file2, file3) => {
-	//console.log(file1, file2, file3)
-	//Handle file1 (Statement)
-	console.log(file1.length);
 
-	parseCSV(file1);
-	parseCSV(file2);
-	parseCSV(file3);
+document.getElementById("runReportLS").addEventListener("click", lsButton, false);
+function lsButton() {
+	console.log("LS button clicked: Local Storage");
+	$("#reportArea").empty();
+	LocalStorage(file1, file2, file3);
+	
+}
+let LocalStorage = (file1, file2, file3) => {
+	displayFile(file1);
+	displayFile(file2);
+	displayFile(file3);
 	//Handle file2 (Payables)
 	
 	//Handle file3 (Payments)
@@ -22,36 +24,27 @@ let LocalStorage = (file1, file2, file3) => {
 	
 	// Segregade duplicate items between files and draw conclusions
 	
-	
 	reportDiv = document.getElementById("reportArea");
 	newDiv = document.createElement("table");
 	newDiv.textContent = 'Here is the report';
 	reportDiv.appendChild(newDiv);
 };
 
-document.getElementById("runReportLS").addEventListener("click", lsButton, false);
-function lsButton() {
+function displayFile(file){
+	// creates an array out of the csv file
+	let allRows = file.split(/\r?\n|\r/);
 
-	console.log("LS button clicked: Local Storage");
-	$("#reportArea").empty();
-	LocalStorage(file1, file2, file3);
-
-}
-})
-
-function parseCSV(file){
-	var allRows = file.split(/\r?\n|\r/);
-	console.log(allRows);
-	var table = '<table>';
-	for (var singleRow = 0; singleRow < allRows.length; singleRow++){
+	// Creates table components
+	let table = '<table>';
+	for (let singleRow = 0; singleRow < allRows.length; singleRow++){
 		if(singleRow ===0) {
 			table += '<thead>';
 			table += '<tr>';
 		} else {
 			table += '<tr>';
 		}
-		var rowCells = allRows[singleRow].split(',');
-		for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
+		let rowCells = allRows[singleRow].split(',');
+		for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
 			if(singleRow === 0) {
 				table += '<th>';
 				table += rowCells[rowCell];
@@ -75,7 +68,14 @@ function parseCSV(file){
 	
 }
 
-
+function reportBuild (file1, file2, file3){
+	//create array for each file
+	let statement = file1.split(/\r?\n|\r/);
+	let payables = file2.split(/\r?\n|\r/);
+	let payments = file3.split(/\r?\n|\r/);
+	let vendors = [];
+	
+}
 
 
 

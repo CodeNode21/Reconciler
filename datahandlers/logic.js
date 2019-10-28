@@ -1,5 +1,4 @@
-//import { LocalStorage } from "./datahandlers/localstorage";
-//import Firebase from "./datahandlers/firebase.js";
+// This file takes in each file and sets them to a variable
 
 
 $(document).ready(function(){
@@ -92,9 +91,7 @@ $(document).ready(function(){
 let file1 = "";
 let file2 = "";
 let file3 = "";
-let first = "first file";
-let second = "second file";
-let third = "third file";
+
 
 
 
