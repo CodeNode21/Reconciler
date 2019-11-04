@@ -13,9 +13,12 @@ function lsButton() {
 	
 }
 let LocalStorage = (file1, file2, file3) => {
-	displayFile(file1);
-	displayFile(file2);
-	displayFile(file3);
+	// displayFile(file1);
+	// displayFile(file2);
+	// displayFile(file3);
+	processData(file1);
+	processData(file2);
+	processData(file3);
 	//Handle file2 (Payables)
 	
 	//Handle file3 (Payments)
@@ -73,8 +76,41 @@ function reportBuild (file1, file2, file3){
 	let statement = file1.split(/\r?\n|\r/);
 	let payables = file2.split(/\r?\n|\r/);
 	let payments = file3.split(/\r?\n|\r/);
-	let vendors = [];
+	let reportArray = [];
+
+}
+
+// function turns files into arrays
+function processData(file) {
+	let allTextLines = file.split(/\r?\n|\r/);
+	fileArray = [];
 	
+	for (let i = 0; i < allTextLines.length; i++) {
+		let row = allTextLines[i].split(';');
+		
+		let col = []; 
+		
+		for (let j = 0; j < row.length; j++) {
+			
+			let index = row[j].split(',');
+			
+			for (let k = 0; k < index.length; k++) {
+				
+			}
+			
+			col.push(row[j]);
+
+		}
+		fileArray.push(col);
+		file = fileArray
+	}
+	consoleLog(file);
+	return file;
+
+}
+
+function consoleLog(file) {
+	console.log(file)
 }
 
 
