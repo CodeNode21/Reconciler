@@ -4,10 +4,10 @@ let thirdLS = "LS third file";
 //var csv require('csv');
 //var obj csv();
 
+//let report = report || {};
 
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
 function lsButton() {
-	console.log("LS button clicked: Local Storage");
 	$("#reportArea").empty();
 	LocalStorage(file1, file2, file3);
 	
@@ -33,9 +33,9 @@ let LocalStorage = (file1, file2, file3) => {
 	reportDiv.appendChild(newDiv);
 };
 
-function displayFile(file){
-	// creates an array out of the csv file
-	let allRows = file.split(/\r?\n|\r/);
+function displayFile(str){
+	// creates an array out of the csv str
+	let allRows = str.split(/\r?\n|\r/);
 
 	// Creates table components
 	let table = '<table>';
@@ -83,29 +83,21 @@ function reportBuild (file1, file2, file3){
 // function turns files into arrays
 function processData(file) {
 	let allTextLines = file.split(/\r?\n|\r/);
-	fileArray = [];
+	fileObject = [];
 	
 	for (let i = 0; i < allTextLines.length; i++) {
-		let row = allTextLines[i].split(';');
-		
+		let row = allTextLines[i].split(',');
 		let col = []; 
 		
 		for (let j = 0; j < row.length; j++) {
-			
-			let index = row[j].split(',');
-			
-			for (let k = 0; k < index.length; k++) {
-				
-			}
-			
+			parseInt(row[j]);
 			col.push(row[j]);
-
 		}
-		fileArray.push(col);
-		file = fileArray
+		fileObject.push(col);
+		file = fileObject
 	}
-	consoleLog(file);
-	return file;
+	consoleLog(fileObject);
+	return fileObject;
 
 }
 
