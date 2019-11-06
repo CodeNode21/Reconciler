@@ -4,7 +4,7 @@ let thirdLS = "LS third file";
 //var csv require('csv');
 //var obj csv();
 
-let report = {};
+let report = [];
 
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
 function lsButton() {
@@ -21,9 +21,9 @@ let LocalStorage = (file1, file2, file3) => {
 	let payables = processData(file2);
 	//Handle file3 (Payments)
 	let paid = processData(file3);
-	
-	report = statement.push(payables);
-	report = statement.push(paid);
+	console.log(typeof(paid))
+	//report += payables;
+	report += paid;
 	console.log(report);
 	
 	console.log(statement[0]);
