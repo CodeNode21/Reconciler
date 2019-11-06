@@ -1,8 +1,3 @@
-let firstLS = "LS first file";
-let secondLS = "LS second file";
-let thirdLS = "LS third file";
-//var csv require('csv');
-//var obj csv();
 
 let report = [];
 
@@ -21,10 +16,14 @@ let LocalStorage = (file1, file2, file3) => {
 	let payables = processData(file2);
 	//Handle file3 (Payments)
 	let paid = processData(file3);
-	console.log(typeof(paid))
-	//report += payables;
-	report += paid;
-	console.log(report);
+
+	let stmnt = reportBuild(file1);
+	let pybl = reportBuild(file2);
+	let payed = reportBuild(file3);
+	let rprt = (stmnt + pybl + payed);
+	//rprt.merge(pybl);
+	//rprt.merge(payed);
+	console.log(rprt);
 	
 	console.log(statement[0]);
 	console.log(payables[0]);
@@ -34,10 +33,13 @@ let LocalStorage = (file1, file2, file3) => {
 	// Segregade duplicate items between files and draw conclusions
 	
 	reportDiv = document.getElementById("reportArea");
-	newDiv = document.createElement("table");
-	newDiv.textContent = 'Here is the report';
+	newDiv = document.createElement("button");
+	newDiv.textContent = statement[0] + payables[0] + paid[0];
 	reportDiv.appendChild(newDiv);
 };
+function findVendors (file){
+	
+}
 
 function displayFile(str){
 	// creates an array out of the csv str
@@ -77,12 +79,22 @@ function displayFile(str){
 	
 }
 
-function reportBuild (file1, file2, file3){
-	//create array for each file
+function reportBuild (file1){
+	//create object for file
+	let jsonObj = [];
 	let statement = file1.split(/\r?\n|\r/);
-	let payables = file2.split(/\r?\n|\r/);
-	let payments = file3.split(/\r?\n|\r/);
-	let reportArray = [];
+	let headers = statement[0].split(',')
+	for (var i = 1; i < statement.length; i++) {
+		let data = statement[i].split(',');
+		var obj = {};
+		for (var j = 0; j < data.length; j++) {
+		obj[headers[j].trim()] = data[j].trim();
+		}
+		jsonObj.push(obj);
+	}
+	JSON.stringify(jsonObj);
+	return jsonObj;
+	
 
 }
 
