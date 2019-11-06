@@ -4,7 +4,7 @@ let thirdLS = "LS third file";
 //var csv require('csv');
 //var obj csv();
 
-//let report = report || {};
+let report = {};
 
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
 function lsButton() {
@@ -16,13 +16,19 @@ let LocalStorage = (file1, file2, file3) => {
 	// displayFile(file1);
 	// displayFile(file2);
 	// displayFile(file3);
-	processData(file1);
-	processData(file2);
-	processData(file3);
+	let statement = processData(file1);
 	//Handle file2 (Payables)
-	
+	let payables = processData(file2);
 	//Handle file3 (Payments)
+	let paid = processData(file3);
 	
+	report = statement.push(payables);
+	report = statement.push(paid);
+	console.log(report);
+	
+	console.log(statement[0]);
+	console.log(payables[0]);
+	console.log(paid[0]);
 	// Combine the files into one
 	
 	// Segregade duplicate items between files and draw conclusions
@@ -83,7 +89,7 @@ function reportBuild (file1, file2, file3){
 // function turns files into arrays
 function processData(file) {
 	let allTextLines = file.split(/\r?\n|\r/);
-	fileObject = [];
+	fileArray = [];
 	
 	for (let i = 0; i < allTextLines.length; i++) {
 		let row = allTextLines[i].split(',');
@@ -93,11 +99,11 @@ function processData(file) {
 			parseInt(row[j]);
 			col.push(row[j]);
 		}
-		fileObject.push(col);
-		file = fileObject
+		fileArray.push(col);
+		file = fileArray
 	}
-	consoleLog(fileObject);
-	return fileObject;
+	///consoleLog(fileObject);
+	return fileArray;
 
 }
 
