@@ -23,6 +23,7 @@ let LocalStorage = (file1, file2, file3) => {
 	let rprt = (stmnt + pybl + payed);
 	//rprt.merge(pybl);
 	//rprt.merge(payed);
+	console.log(stmnt);
 	console.log(rprt);
 	
 	console.log(statement[0]);
@@ -34,7 +35,8 @@ let LocalStorage = (file1, file2, file3) => {
 	
 	reportDiv = document.getElementById("reportArea");
 	newDiv = document.createElement("button");
-	newDiv.textContent = statement[0] + payables[0] + paid[0];
+	newDiv.textContent = statement[0] + paid[0];
+	newDiv.textContent += payables[0];
 	reportDiv.appendChild(newDiv);
 };
 function findVendors (file){
