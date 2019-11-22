@@ -125,7 +125,10 @@ function consoleLog(file) {
 	console.log(file)
 }
 
-
+var vendorsList = file1.filter(function(data) {
+	return data.vendor === 'something';
+	// returns new filter array for vendors 
+})
 
 
 
