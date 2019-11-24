@@ -1,37 +1,24 @@
 
 let report = [];
-
+let stmnt = [];
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
-function lsButton() {
+function lsButton() {// empties report area and runs new report
 	$("#reportArea").empty();
-	LocalStorage(file1, file2, file3);
-	
+	LocalStorage(file1, file2, file3);	
 }
-let LocalStorage = (file1, file2, file3) => {
-	// displayFile(file1);
-	// displayFile(file2);
-	// displayFile(file3);
-	let statement = processData(file1);
-	//Handle file2 (Payables)
-	let payables = processData(file2);
-	//Handle file3 (Payments)
-	let paid = processData(file3);
 
-	let stmnt = reportBuild(file1);
-	let pybl = reportBuild(file2);
-	let payed = reportBuild(file3);
-	let rprt = (stmnt + pybl + payed);
-	//rprt.merge(pybl);
-	//rprt.merge(payed);
-	console.log(stmnt);
-	console.log(rprt);
-	
+let LocalStorage = () => {
+	report = reportBuild(file1);
+	let statement = processData(file1);
+	let payables = processData(file2);
+	let paid = processData(file3);
 	console.log(statement[0]);
 	console.log(payables[0]);
 	console.log(paid[0]);
-	// Combine the files into one
+	displayFile(statement[0][1]);
+	displayFile(payables[0][1])
+	displayFile(paid[0][1]);
 	
-	// Segregade duplicate items between files and draw conclusions
 	
 	reportDiv = document.getElementById("reportArea");
 	newDiv = document.createElement("button");
@@ -43,9 +30,9 @@ function findVendors (file){
 	
 }
 
-function displayFile(str){
+function displayFile(str){ // displays file on page
 	// creates an array out of the csv str
-	let allRows = str.split(/\r?\n|\r/);
+	let allRows = str //.split(/\r?\n|\r/);
 
 	// Creates table components
 	let table = '<table>';
@@ -81,7 +68,7 @@ function displayFile(str){
 	
 }
 
-function reportBuild (file1){
+function reportBuild (file1){ //returns an object
 	//create object for file
 	let jsonObj = [];
 	let statement = file1.split(/\r?\n|\r/);
@@ -100,38 +87,37 @@ function reportBuild (file1){
 
 }
 
-// function turns files into arrays
-function processData(file) {
+function processData(file) { //returns arrays
 	let allTextLines = file.split(/\r?\n|\r/);
 	fileArray = [];
 	
 	for (let i = 0; i < allTextLines.length; i++) {
 		let row = allTextLines[i].split(',');
 		let col = []; 
-		
 		for (let j = 0; j < row.length; j++) {
 			parseInt(row[j]);
 			col.push(row[j]);
 		}
 		fileArray.push(col);
-		file = fileArray
 	}
-	///consoleLog(fileObject);
 	return fileArray;
-
 }
 
-function consoleLog(file) {
-	console.log(file)
-}
-
+// first way
 var vendorsList = file1.filter(function(data) {
-	return data.vendor === 'something';
+	return data.vendor === 'APLU';
 	// returns new filter array for vendors 
 })
+// second way
+var isVendor = function(data) {
+	return data.vendor === 'APLU'
+}
+var vendors = file1.filter(isVendor)
+var otherVendors = file1.reject(isVendor)
 
-
-
+// .filter + .reject
+// .map + .find
+// .reduce    = get the totals
 
 
 
