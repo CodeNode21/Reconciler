@@ -115,11 +115,17 @@ var isVendor = function(data) {
 var vendors = file1.filter(isVendor)
 var otherVendors = file1.reject(isVendor)
 
-// .filter + .reject
-// .map + .find
-// .reduce    = get the totals
-
-
+// 1 .filter + .reject
+// 2 .map + .find
+// 3 & 4.reduce    = get the totals
+// 5 closures
+// 6 currying 
+// 7 recursion - when a function calls on itself until it doesn't
+// 8 promises
+//Create a tree structure
+{
+	BL
+}
 
 
 
