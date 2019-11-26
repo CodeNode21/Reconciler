@@ -4,33 +4,57 @@ let stmnt = [];
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
 function lsButton() {// empties report area and runs new report
 	$("#reportArea").empty();
+	$("#columnSelect").empty();
 	LocalStorage(file1, file2, file3);	
 }
 
 let LocalStorage = () => {
 	report = reportBuild(file1);
-	let statement = processData(file1);
-	let payables = processData(file2);
-	let paid = processData(file3);
+	const statement = processData(file1);
+	const payables = processData(file2);
+	const paid = reportBuild(file3);
+	
 	console.log(statement[0]);
 	console.log(payables[0]);
 	console.log(paid[0]);
-	displayFile(statement[0][1]);
-	displayFile(payables[0][1])
-	displayFile(paid[0][1]);
 	
+	buttonMaker(statement[0]);
+	buttonMaker(payables[0])
+	buttonMaker(paid[0]);
+	console.log(paid);
 	
-	reportDiv = document.getElementById("reportArea");
-	newDiv = document.createElement("button");
-	newDiv.textContent = statement[0] + paid[0];
-	newDiv.textContent += payables[0];
-	reportDiv.appendChild(newDiv);
+	const distinctVendors = [...new Set(paid.map(x => x.vendorId))];
+	console.log(distinctVendors)
+	
+	var vendorsList = paid.filter(function(data) {
+		return data.vendorID === 'GAP';
+		// returns new array for GAP data 
+	})
+	console.log(vendorsList)
+	
+	//reportDiv = document.getElementById("reportArea");
+	//newDiv = document.createElement("button");
+	//newDiv.textContent = statement[0] + paid[0];
+	//newDiv.textContent += payables[0];
+	//reportDiv.appendChild(newDiv);
 };
-function findVendors (file){
+
+function buttonMaker(arr){ //Creates buttons for array
+	for (var i = 1; i < arr.length; i++){
+		document.getElementById("columnSelect").innerHTML += `<button id="columns"> ${arr[i]} </button>`
+	}
+	document.getElementById("columnSelect").innerHTML += `<hr>`
 	
+	//var element = document.createElement('div')
+	//element.innerHTML = `
+	//<h1>This element is looping</h1>
+	//${Array(5).join(0).split(0).map((item, i) => `
+    //<div>I am item number ${i}.</div>
+	//`).join('')}
+	//`
 }
 
-function displayFile(str){ // displays file on page
+function displayFile(str){ // displays file as table on page
 	// creates an array out of the csv str
 	let allRows = str //.split(/\r?\n|\r/);
 
@@ -126,8 +150,14 @@ var otherVendors = file1.reject(isVendor)
 {
 	BL
 }
+let my_element = document.createElement("<h1>");
+let my_span = document.createElement("<span>");
 
+my_span.innerText = "hello";
+my_element.appendChild(my_span);
+document.body.appendChild(my_element);
 
+// find Vendors list array
 
 
 
