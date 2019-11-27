@@ -11,7 +11,7 @@ function lsButton() {// empties report area and runs new report
 let LocalStorage = () => {
 	report = reportBuild(file1);
 	const statement = processData(file1);
-	const payables = processData(file2);
+	const payables = reportBuild(file2);
 	const paid = reportBuild(file3);
 	
 	console.log(statement[0]);
@@ -21,16 +21,19 @@ let LocalStorage = () => {
 	buttonMaker(statement[0]);
 	buttonMaker(payables[0])
 	buttonMaker(paid[0]);
-	console.log(paid);
+	console.log(paid[0]);
+	console.log(typeof(paid[0]));
 	
-	const distinctVendors = [...new Set(paid.map(x => x.vendorId))];
-	console.log(distinctVendors)
+	const distinctVendors = [...new Set(paid.map(data => data.vendorId))];
+	const distinctVendorsAP = [...new Set(payables.map(data => data.vendorId))];
+	//console.log(distinctVendorsAP);
+	//console.log(distinctVendors);
 	
-	var vendorsList = paid.filter(function(data) {
+	const vendorsList = paid.filter(function(data) {
 		return data.vendorID === 'GAP';
 		// returns new array for GAP data 
 	})
-	console.log(vendorsList)
+	//console.log(vendorsList)
 	
 	//reportDiv = document.getElementById("reportArea");
 	//newDiv = document.createElement("button");
@@ -40,7 +43,7 @@ let LocalStorage = () => {
 };
 
 function buttonMaker(arr){ //Creates buttons for array
-	for (var i = 1; i < arr.length; i++){
+	for (var i = 0; i < arr.length; i++){
 		document.getElementById("columnSelect").innerHTML += `<button id="columns"> ${arr[i]} </button>`
 	}
 	document.getElementById("columnSelect").innerHTML += `<hr>`
@@ -158,33 +161,3 @@ my_element.appendChild(my_span);
 document.body.appendChild(my_element);
 
 // find Vendors list array
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
