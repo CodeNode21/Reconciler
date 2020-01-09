@@ -1,4 +1,4 @@
-# Reconciler
+# Reconciler - Beta
 
 This application receives 3 CSV files (Statement, Entries and Payment History) and builds an account status report.
 
@@ -12,4 +12,8 @@ and items already paid to vendor (past records).
 Uploading this data user will be able to get a snapshot of the vendor(s) account status. 
 
 
+Future Features
+- Creating a database for each account for auto account reconciliation
+- Email remittance will update account status with option of email notifications for items paid
+- Statement upload via email and auto update
 
