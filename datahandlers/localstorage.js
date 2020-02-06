@@ -163,7 +163,7 @@ document.body.appendChild(my_element);
 // find Vendors list array
 
 
-https://developers.google.com/web/fundamentals/primers/promises
+// https://developers.google.com/web/fundamentals/primers/promises
 
 // Promises notes
 file1.callThisIf LoadedOrWhenLoaded(function() {

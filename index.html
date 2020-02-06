@@ -30,13 +30,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4">Statement
+            <div class="col-4">Vendor Statement
               <input type="file" id="fileinput1" accept=".csv"/>  
               <hr>
               <textarea rows=15 cols=33 id="area1">
                 </textarea>	
             </div>
-            <div class="col-4">Entered Payables
+            <div class="col-4">Expense Entries
               <input type="file" id="fileinput2" accept=".csv"/>  
               <hr>
               <textarea rows=15 cols=33 id="area2">
@@ -54,8 +54,8 @@
 	<div class="container">
 		<div class="col">
 			<button id="runReportLS"> Run Report via LocalStorage </button>
-			<button id="runReportFB"> Run Report via FireBase</button>
-			<button id="runReportMS"> Run Report via MySQL</button>
+			<!-- <button id="runReportFB"> Run Report via FireBase</button>
+			<button id="runReportMS"> Run Report via MySQL</button> -->
 			<p> The following area will display report results</p>
 			<p> Vendor Id and uploaded files totals (clicking on this field expands section down for more details.
 			<div id="columnSelect"></div>
@@ -66,15 +66,6 @@
 	<script type='text/javascript' src='./datahandlers/localstorage.js'></script>
 	<script type='text/javascript' src='./datahandlers/logic.js'></script>
 
-	<script type="text/javascript">
-		// function loadDoc(){
-		// 		console.log("clicked load");
-		// }
-		// function readfile() {
-		// 	document.getElementById('iframe');/contentDocument.body.firstChild.innerHTML;
-		// }
-
-  </script>
   <!-- FireBase -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.2.1/firebase-app.js"></script>
