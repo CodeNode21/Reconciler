@@ -14,15 +14,92 @@
     
 </head>
 <body>
+<div class='lookieGrid'>
+		<div class="wrapper">
+	
+	<div class="item">R</div>
+	<div class="item">E</div>
+	<div class="item">C</div>
+	<div class="item">O</div>
+	<div class="item">N</div>
+	<div class="item">C</div>
+	<div class="item">I</div>
+	<div class="item">L</div>
+	<div class="item">E</div>
+
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	
+	<!-- <div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>	
+	
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div> -->
+
+</div>
+
+</div>
         <div class="jumbotron jumbotron-fluid">
+
                 <div class="container">
                   <h1 class="display-4">Reconciler</h1>
                   <p class="lead">Below you can build a report by uploading 3 data sets. These files should reflect items which are: Paid, Recorded and Pending. Generally this data can be found as I find them.. Paid and Recorded items should be found in your accounting system while the Pending items would come from Statement of accounts thorugh vendors. </p>
 				  
 				  <p class="lead">The output will summarize the data into a concise report merging all the data inputs. </p>			  
-					<a href="https:://https://youtube.com">See instructional video here</a>
+					<!-- <a href="https:://https://youtube.com">See instructional video here</a> -->
 				 <hr>
-				  <button>Tip Jar</button>
+				  <!-- <button>Tip Jar</button> -->
                 </div>
               </div>
 
@@ -65,6 +142,29 @@
 	</div>
 	<script type='text/javascript' src='./datahandlers/localstorage.js'></script>
 	<script type='text/javascript' src='./datahandlers/logic.js'></script>
+	<script type='text/javascript'>
+	document.addEventListener('mousemove', (e) => {	
+	const sqrs = document.querySelectorAll('.item');
+		
+	const mouseX = e.pageX;
+	const mouseY = e.pageY;
+	
+	sqrs.forEach(sqr => {
+		const sqrX = sqr.offsetLeft + 20;
+		const sqrY = sqr.offsetTop + 20;
+
+		const diffX = mouseX - sqrX;
+		const diffY = mouseY - sqrY;
+		
+		const radians = Math.atan2(diffY, diffX);
+				
+		const angle = radians * 180 / Math.PI;
+		
+		sqr.style.transform = `rotate(${angle}deg)`;
+	})
+	
+})
+</script>
 
   <!-- FireBase -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->

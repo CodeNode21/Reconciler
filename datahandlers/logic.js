@@ -1,4 +1,4 @@
-// This file takes in each file and sets them to a variable
+// This file takes in each file and assigns them to a variable
 
 
 $(document).ready(function(){
@@ -26,7 +26,7 @@ $(document).ready(function(){
                 //alert(area)
                 document.getElementById("area1").value = contents;
                 file1 = contents;
-                localStorage.setItem("file1", file1)
+                // localStorage.setItem("file1", file1)
 	
             }
             r.readAsText(f);

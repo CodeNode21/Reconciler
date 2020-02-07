@@ -1,4 +1,4 @@
-BODY {
+/* BODY {
 	SCROLLBAR-FACE-COLOR: #336699; 
 	//BACKGROUND: #112233; 
 	SCROLLBAR-HIGHLIGHT-COLOR: #112233; 
@@ -61,7 +61,51 @@ text {
 TD {
 	WIDTH: 700px; BACKGROUND-COLOR: #336699
 }
+html {
+  box-sizing: border-box;
+	cursor: url('https://i.ibb.co/6bycCv7/Ellipse-4.png'), default;	
+}
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+div.item{
+	color: blue;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+	background-color: #030302;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+.wrapper {
+
+	display: grid;
+	grid-template-columns: repeat(15, 50px);
+	grid-template-rows: repeat(3, 40px);
+	grid-gap: 1.5rem;
+
+}
+.item { background-color: #FECE00; }
+.lookieGrid{
+	margin: auto;
+	margin-top: 15px;
+  width: 87%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+/*
 .jumbotron{
 	color: #336699;
 }
@@ -77,9 +121,9 @@ TD {
 }
 
 .jumbotron{
-	background: #FFEFBA;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #FFEFBA;  /* fallback for old browsers 
+	background: -webkit-linear-gradient(to top, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 
+	background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
 
 }
 .display-4{
@@ -88,7 +132,7 @@ TD {
 
 
 
-
+ */
 
 
 

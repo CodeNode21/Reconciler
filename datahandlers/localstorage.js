@@ -150,44 +150,44 @@ var otherVendors = file1.reject(isVendor)
 // 7 recursion - when a function calls on itself until it doesn't
 // 8 promises
 //Create a tree structure
-{
-	BL
-}
-let my_element = document.createElement("<h1>");
-let my_span = document.createElement("<span>");
+// {
+// 	BL
+// }
+// let my_element = document.createElement("<h1>");
+// let my_span = document.createElement("<span>");
 
-my_span.innerText = "hello";
-my_element.appendChild(my_span);
-document.body.appendChild(my_element);
+// my_span.innerText = "hello";
+// my_element.appendChild(my_span);
+// document.body.appendChild(my_element);
 
-// find Vendors list array
+// // find Vendors list array
 
 
-// https://developers.google.com/web/fundamentals/primers/promises
+// // https://developers.google.com/web/fundamentals/primers/promises
 
-// Promises notes
-file1.callThisIf LoadedOrWhenLoaded(function() {
-	//loaded
-}).orIfFailedCallThis(function(){
-	// failed
-});
+// // Promises notes
+// file1.callThisIf loadedOrWhenLoaded(function() {
+// 	//loaded
+// }).orIfFailedCallThis(function(){
+// 	// failed
+// });
 
-//and 
-whenAllTheseHaveLoaded([file1, file2, file3]).callThis(function() {
-//all loaded
-}).orIfSomeFailedCallThis(function() {
-//ones or more failed});
+// //and 
+// whenAllTheseHaveLoaded([file1, file2, file3]).callThis(function() {
+// //all loaded
+// }).orIfSomeFailedCallThis(function() {
+// //ones or more failed});
 
-   same as 
-img1.ready().then(function() {
-  // loaded
-}, function() {
-  // failed
-});
+//    same as 
+// img1.ready().then(function() {
+//   // loaded
+// }, function() {
+//   // failed
+// });
 
-// and…
-Promise.all([img1.ready(), img2.ready()]).then(function() {
-  // all loaded
-}, function() {
-  // one or more failed
-});
+// // and…
+// Promise.all([img1.ready(), img2.ready()]).then(function() {
+//   // all loaded
+// }, function() {
+//   // one or more failed
+// });
