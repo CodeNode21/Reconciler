@@ -96,19 +96,31 @@ body {
 	grid-gap: 1.5rem;
 
 }
-.item { background-color: #FECE00; }
+.item { 
+	background-color: #FECE00;
+
+ }
 .lookieGrid{
-	margin: auto;
-	margin-top: 15px;
-  width: 87%;
-  border: 3px solid green;
-  padding: 10px;
+	width: 87%;
+	border: 1px solid green;
+	padding: 10px;
+  	margin-top: 15px;	
+	margin-left: auto;
+	margin-right: auto;
 }
 
-/*
+.row{
+	margin: 15px;
+}
+	
 .jumbotron{
 	color: #336699;
 }
+
+.textarea{
+	width: 95%;
+}
+/*
 #columns{
 	margin: 3px;
 	color: #e3dfeb;
