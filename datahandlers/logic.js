@@ -1,5 +1,8 @@
-// This file takes in each file and assigns them to a variable
+// This file reads each uploaded file and assigns them to a variable
 
+let file1 = "";
+let file2 = "";
+let file3 = "";
 
 $(document).ready(function(){
 
@@ -31,7 +34,7 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load file");
+            alert("Failed to load. No file selected");
         }
     }
 	    function readFile2(evt) {
@@ -56,7 +59,7 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load file");
+            alert("Failed to load. No file selected");
         }
     }
 	    function readFile3(evt) {
@@ -83,14 +86,11 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load file");
+            alert("Failed to load. No file selected");
         }
     }
 })
 
-let file1 = "";
-let file2 = "";
-let file3 = "";
 
 
 

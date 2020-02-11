@@ -2,15 +2,24 @@
 let report = [];
 let stmnt = [];
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
+
 function lsButton() {// empties report area and runs new report
 	$("#reportArea").empty();
 	$("#columnSelect").empty();
-	LocalStorage(file1, file2, file3);	
+	lsReport(file1, file2, file3);
+
 }
 
-let LocalStorage = () => {
+currentLocalStorage = () => {
+	for (var i =0 ; i < localStorage.length; i++){
+		console.log(localStorage.key(i) + " =[" + localStorage.getItem(localStorage.key(i)) + "]");
+	}
+}
+
+let lsReport = () => {
+	console.log(currentLocalStorage())
 	report = reportBuild(file1);
-	const statement = processData(file1);
+	const statement = reportBuild(file1);
 	const payables = reportBuild(file2);
 	const paid = reportBuild(file3);
 	
