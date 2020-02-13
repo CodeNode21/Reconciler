@@ -23,7 +23,12 @@ let lsReport = () => {
 	const payables = reportBuild(file2);
 	const paid = reportBuild(file3);
 	
-	console.log(statement[0]);
+	let statementArray = processData(file1);
+	let payablesArray = processData(file2);
+	let paidArray = processData(file3);
+
+	console.log(statementArray[0]);
+	console.log(statement[0].blID);
 	console.log(payables[0]);
 	console.log(paid[0]);
 	
