@@ -1,6 +1,8 @@
 
 let report = [];
 let stmnt = [];
+
+
 document.getElementById("runReportLS").addEventListener("click", lsButton, false);
 
 function lsButton() {// empties report area and runs new report
@@ -17,33 +19,48 @@ currentLocalStorage = () => {
 }
 
 let lsReport = () => {
-	console.log(currentLocalStorage())
-	report = reportBuild(file1);
-	const statement = reportBuild(file1);
-	const payables = reportBuild(file2);
-	const paid = reportBuild(file3);
+
+	const statementObject = reportBuild(file1);
+	const payablesObject = reportBuild(file2);
+	const paidObject = reportBuild(file3);
+	
+	report = statementObject;
+	//report.sort(function(a, b) {
+	//	if (a.blId.toLowerCase() < b.lastName.toLowerCase()
+	//		) return -1;
+	//	if (a.lastName.toLowerCase() > b.lastName.toLowerCase()
+	//		) return 1;
+	//	return 0
+	//}
+	report.sort(function(a,b) {
+		return a.blID - b.blID
+	})
 	
 	let statementArray = processData(file1);
 	let payablesArray = processData(file2);
 	let paidArray = processData(file3);
 
-	console.log(statementArray[0]);
-	console.log(statement[0].blID);
-	console.log(payables[0]);
-	console.log(paid[0]);
+	console.log(statementArray);
+	console.log(payablesArray);
+	console.log(paidArray);
 	
-	buttonMaker(statement[0]);
-	buttonMaker(payables[0])
-	buttonMaker(paid[0]);
-	console.log(paid[0]);
-	console.log(typeof(paid[0]));
+	console.log(statementObject
+	//.blID
+	);
+	console.log(payablesObject);
+	console.log(paidObject);
 	
-	const distinctVendors = [...new Set(paid.map(data => data.vendorId))];
-	const distinctVendorsAP = [...new Set(payables.map(data => data.vendorId))];
+	buttonMaker(statementArray[0]);
+	buttonMaker(payablesArray[0])
+	buttonMaker(paidArray[0]);
+
+	
+	const distinctVendors = [...new Set(paidObject.map(data => data.vendorId))];
+	const distinctVendorsAP = [...new Set(payablesObject.map(data => data.vendorId))];
 	//console.log(distinctVendorsAP);
 	//console.log(distinctVendors);
 	
-	const vendorsList = paid.filter(function(data) {
+	const vendorsList = paidObject.filter(function(data) {
 		return data.vendorID === 'GAP';
 		// returns new array for GAP data 
 	})
