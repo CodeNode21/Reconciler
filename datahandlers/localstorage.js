@@ -24,7 +24,8 @@ let lsReport = () => {
 	const payablesObject = reportBuild(file2);
 	const paidObject = reportBuild(file3);
 	
-	report = statementObject;
+	report = statementObject.concat(payablesObject.concat(paidObject));
+	
 	//report.sort(function(a, b) {
 	//	if (a.blId.toLowerCase() < b.lastName.toLowerCase()
 	//		) return -1;
@@ -39,6 +40,7 @@ let lsReport = () => {
 	let statementArray = processData(file1);
 	let payablesArray = processData(file2);
 	let paidArray = processData(file3);
+
 
 	console.log(statementArray);
 	console.log(payablesArray);
@@ -55,10 +57,10 @@ let lsReport = () => {
 	buttonMaker(paidArray[0]);
 
 	
-	const distinctVendors = [...new Set(paidObject.map(data => data.vendorId))];
-	const distinctVendorsAP = [...new Set(payablesObject.map(data => data.vendorId))];
-	//console.log(distinctVendorsAP);
-	//console.log(distinctVendors);
+	let distinctVendors = [...new Set(paidObject.map(data => data.vendorId))];
+	let distinctVendorsAP = [...new Set(payablesObject.map(data => data.vendorId))];
+	console.log(distinctVendorsAP);
+	console.log(distinctVendors);
 	
 	const vendorsList = paidObject.filter(function(data) {
 		return data.vendorID === 'GAP';
