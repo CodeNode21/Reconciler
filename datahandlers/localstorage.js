@@ -19,63 +19,86 @@ currentLocalStorage = () => {
 }
 
 let lsReport = () => {
-
-	const statementObject = reportBuild(file1);
-	const payablesObject = reportBuild(file2);
-	const paidObject = reportBuild(file3);
+	// creates objects from files
+	const statementObject = toObject(file1);
+	const payablesObject = toObject(file2);
+	const paidObject = toObject(file3);
 	
-	report = statementObject.concat(payablesObject.concat(paidObject));
-	
-	//report.sort(function(a, b) {
-	//	if (a.blId.toLowerCase() < b.lastName.toLowerCase()
-	//		) return -1;
-	//	if (a.lastName.toLowerCase() > b.lastName.toLowerCase()
-	//		) return 1;
-	//	return 0
-	//}
-	report.sort(function(a,b) {
-		return a.blID - b.blID
-	})
-	
-	let statementArray = processData(file1);
-	let payablesArray = processData(file2);
-	let paidArray = processData(file3);
-
+	// creates arrays from files
+	let statementArray = toArray(file1);
+	let payablesArray = toArray(file2);
+	let paidArray = toArray(file3);
 
 	console.log(statementArray);
 	console.log(payablesArray);
 	console.log(paidArray);
+	displayFile(file1);
+	displayFile(file2);
+	displayFile(file3);
 	
-	console.log(statementObject
-	//.blID
-	);
-	console.log(payablesObject);
-	console.log(paidObject);
+	console.log(statementObject[0]);
+	console.log(payablesObject[0]);
+	console.log(paidObject[0]);
+	// rec(statementObject)
 	
+	// creates buttons of file fields
 	buttonMaker(statementArray[0]);
 	buttonMaker(payablesArray[0])
 	buttonMaker(paidArray[0]);
-
-	
-	let distinctVendors = [...new Set(paidObject.map(data => data.vendorId))];
-	let distinctVendorsAP = [...new Set(payablesObject.map(data => data.vendorId))];
-	console.log(distinctVendorsAP);
-	console.log(distinctVendors);
-	
-	const vendorsList = paidObject.filter(function(data) {
-		return data.vendorID === 'GAP';
-		// returns new array for GAP data 
-	})
-	//console.log(vendorsList)
-	
-	//reportDiv = document.getElementById("reportArea");
-	//newDiv = document.createElement("button");
-	//newDiv.textContent = statement[0] + paid[0];
-	//newDiv.textContent += payables[0];
-	//reportDiv.appendChild(newDiv);
+	buildReport(statementObject, payablesObject, paidObject)
 };
 
-function buttonMaker(arr){ //Creates buttons for array
+function findDup(file){
+	const object = {};
+	const result = [];
+
+	file.forEach(item => {
+		if(!object[item])
+		object[item] = 0;
+		object[item] += 1;
+	})
+}
+function ReportLine (blId, invNo, dueDate, invAmt, balance, vendorId, fileId, blID, dateId, amount, checkNo, checkDate, checkAmt, vendorID, fileID, BlId, amounT ){
+	this.shipment= blId,
+  this.invoice= invNo,
+  this.dueDate= dueDate,
+  this.invAmt = invAmt, 
+  this.owed = balance,
+  this.vendor = vendorId,
+	this.houseFile = fileId,
+	this.apBl = blID, 
+  this.received = dateId,
+  this.amtEntered = amount,
+  this.paymentNo = checkNo,
+  this.paymentDate = checkDate,
+	this.paymentAmt = checkAmt,
+	this.paidVendorID = vendorID, 
+	this.paidFileId = fileID,
+	this.paidBlId = BlId,
+	this.paidAmount = amounT; 
+	report.push(this)
+}
+
+function buildReport(file1, file2, file3){
+	let len = file1.concat(file2.concat(file3)).length;
+	let statementObj;
+	for (let i = 0; i < file1.length; i++){
+		sta = new ReportLine(file1[i].blID, file1[i]["INV NO"], file1[i]["DUE DATE"], file1[i]["INV AMT"], file1[i].BALANCE)
+		
+	}
+	
+	console.log(report);
+}
+
+function rec(statementObject){
+  let rep;
+
+  for (let i = 0; i < statementObject.length; i++){
+    console.log(statementObject[i].blID)
+  }
+  return -1;
+}
+function buttonMaker(arr){ //Creates buttons from a given index 
 	for (var i = 0; i < arr.length; i++){
 		document.getElementById("columnSelect").innerHTML += `<button id="columns"> ${arr[i]} </button>`
 	}
@@ -92,7 +115,7 @@ function buttonMaker(arr){ //Creates buttons for array
 
 function displayFile(str){ // displays file as table on page
 	// creates an array out of the csv str
-	let allRows = str //.split(/\r?\n|\r/);
+	let allRows = str.split(/\r?\n|\r/);
 
 	// Creates table components
 	let table = '<table>';
@@ -128,8 +151,7 @@ function displayFile(str){ // displays file as table on page
 	
 }
 
-function reportBuild (file1){ //returns an object
-	//create object for file
+function toObject (file1){ //returns an object
 	let jsonObj = [];
 	let statement = file1.split(/\r?\n|\r/);
 	let headers = statement[0].split(',')
@@ -147,7 +169,7 @@ function reportBuild (file1){ //returns an object
 
 }
 
-function processData(file) { //returns arrays
+function toArray(file) { //returns arrays
 	let allTextLines = file.split(/\r?\n|\r/);
 	fileArray = [];
 	

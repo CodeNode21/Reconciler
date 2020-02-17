@@ -92,7 +92,7 @@ body {
 
 	display: grid;
 	grid-template-columns: repeat(15, 50px);
-	grid-template-rows: repeat(3, 40px);
+	grid-template-rows: repeat(.2, 40px);
 	grid-gap: 1.5rem;
 	text-align: center;
 }
