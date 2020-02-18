@@ -8,24 +8,25 @@ let reportStructure = (file1, file2, file3) => {
       // from file1, file2, file3 search object arrays for like properties and set them as variables
       // 
 }
-
-// report object constructor
-let ReportLine = (vendorId, blId, invNo, dueDate, invAmt, balance,fileId, dateId, amount, checkNo, checkDate, checkAmt) =>{
-  this.vendor = vendorId,
-  this.shipment= blId,
+function ReportLine (blId, invNo, dueDate, invAmt, balance, vendorId, fileId, blID, dateId, amount, checkNo, checkDate, checkAmt, vendorID, fileID, BlId, amounT ){
+	this.shipment= blId,
   this.invoice= invNo,
   this.dueDate= dueDate,
   this.invAmt = invAmt, 
   this.owed = balance,
-  this.houseFile = fileId, 
+  this.vendor = vendorId,
+	this.houseFile = fileId,
+	this.apBl = blID, 
   this.received = dateId,
   this.amtEntered = amount,
   this.paymentNo = checkNo,
   this.paymentDate = checkDate,
-  this.paymentAmt = checkAmt,
-  this.discrepancy = function(invAmt, amount){
-    return (invAmt - amount);
-  }
+	this.paymentAmt = checkAmt,
+	this.paidVendorID = vendorID, 
+	this.paidFileId = fileID,
+	this.paidBlId = BlId,
+	this.paidAmount = amounT; 
+	report.push(this)
 }
 
 let reportLines = new ReportLine();
@@ -80,4 +81,3 @@ let findBls = function(statementArray){
 	//console.log(vendorsList)
 
 
-  

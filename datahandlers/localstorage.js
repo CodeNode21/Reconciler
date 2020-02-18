@@ -32,9 +32,8 @@ let lsReport = () => {
 	console.log(statementArray);
 	console.log(payablesArray);
 	console.log(paidArray);
-	displayFile(file1);
-	displayFile(file2);
-	displayFile(file3);
+	// displayFile(file2);
+	// displayFile(file3);
 	
 	console.log(statementObject[0]);
 	console.log(payablesObject[0]);
@@ -45,19 +44,15 @@ let lsReport = () => {
 	buttonMaker(statementArray[0]);
 	buttonMaker(payablesArray[0])
 	buttonMaker(paidArray[0]);
+
+	// combines files via object constructor
 	buildReport(statementObject, payablesObject, paidObject)
+
+
 };
 
-function findDup(file){
-	const object = {};
-	const result = [];
 
-	file.forEach(item => {
-		if(!object[item])
-		object[item] = 0;
-		object[item] += 1;
-	})
-}
+// report object constructor
 function ReportLine (blId, invNo, dueDate, invAmt, balance, vendorId, fileId, blID, dateId, amount, checkNo, checkDate, checkAmt, vendorID, fileID, BlId, amounT ){
 	this.shipment= blId,
   this.invoice= invNo,
@@ -83,11 +78,38 @@ function buildReport(file1, file2, file3){
 	let len = file1.concat(file2.concat(file3)).length;
 	let statementObj;
 	for (let i = 0; i < file1.length; i++){
-		sta = new ReportLine(file1[i].blID, file1[i]["INV NO"], file1[i]["DUE DATE"], file1[i]["INV AMT"], file1[i].BALANCE)
-		
+		let sta = new ReportLine(file1[i].blID, file1[i]["INV NO"], file1[i]["DUE DATE"], file1[i]["INV AMT"], file1[i].BALANCE, '', '', '', '', '','','','','','','',''); 
+		// console.log(sta)
+
+	}
+	for (let i = 0; i < file2.length; i++){
+		let openAP = new ReportLine('','','','','', file2[i].vendorID, file2[i].fileID, file2[i].blID, file2[i].dateID, file2[i].amount, '','','','','','','')
+		// console.log(openAP)
+
 	}
 	
-	console.log(report);
+	for (let i = 0; i < file3.length; i++){
+		let paid = new ReportLine('','','','','', '', '', '', '', '', file3[i]["Check #"], file3[i]["Check Date"], file3[i]["Check Amount"], file3[i].vendorID, file3[i].fileID, file3[i].blID, file3[i].amount)
+		// console.log(paid)
+
+	} 
+	// with the statement data in the new constructor, loop though openAp array and find = bls. then fill in the blanks
+	// do the same for 
+	findDup(report);
+	
+}
+function findDup(file){
+	console.log(file[0])
+	let dupList = [];
+	for( let i = 0; i < file.length; i++){
+		let current = file[i].shipment;
+		if (current === i) {
+			console.log(`Duplicate BL :${current}`)
+			
+		}
+		// console.log(file[i].shipment)
+
+	}
 }
 
 function rec(statementObject){
@@ -115,7 +137,9 @@ function buttonMaker(arr){ //Creates buttons from a given index
 
 function displayFile(str){ // displays file as table on page
 	// creates an array out of the csv str
-	let allRows = str.split(/\r?\n|\r/);
+	// let allRows = str.split(/\r?\n|\r/);
+
+	let allRows = str;
 
 	// Creates table components
 	let table = '<table>';
