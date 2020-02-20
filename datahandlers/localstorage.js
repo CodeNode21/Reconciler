@@ -54,23 +54,23 @@ let lsReport = () => {
 
 // report object constructor
 function ReportLine (blId, invNo, dueDate, invAmt, balance, vendorId, fileId, blID, dateId, amount, checkNo, checkDate, checkAmt, vendorID, fileID, BlId, amounT ){
-	this.shipment= blId,
+  this.shipment= blId,
   this.invoice= invNo,
   this.dueDate= dueDate,
   this.invAmt = invAmt, 
   this.owed = balance,
-  this.vendor = vendorId,
+    this.vendor = vendorId,
 	this.houseFile = fileId,
 	this.apBl = blID, 
-  this.received = dateId,
-  this.amtEntered = amount,
-  this.paymentNo = checkNo,
-  this.paymentDate = checkDate,
-	this.paymentAmt = checkAmt,
-	this.paidVendorID = vendorID, 
-	this.paidFileId = fileID,
-	this.paidBlId = BlId,
-	this.paidAmount = amounT; 
+    this.received = dateId,
+    this.amtEntered = amount,
+	  this.paymentNo = checkNo,
+	  this.paymentDate = checkDate,
+	  this.paymentAmt = checkAmt,
+	  this.paidVendorID = vendorID, 
+	  this.paidFileId = fileID,
+	  this.paidBlId = BlId,
+	  this.paidAmount = amounT; 
 	report.push(this)
 }
 
@@ -98,19 +98,22 @@ function buildReport(file1, file2, file3){
 	findDup(report);
 	
 }
-function findDup(file){
-	console.log(file[0])
+function findDup(report){
+
 	let dupList = [];
-	for( let i = 0; i < file.length; i++){
-		let current = file[i].shipment;
-		if (current === i) {
-			console.log(`Duplicate BL :${current}`)
-			
+	for( let i = 0; i <= 3; i++){
+		console.log(report[i].shipment)
+		for(var j = i; j<= 3; j ++){
+			console.log(report[j].shipment)
+			//if(i != j && report[i].shipment == report[j].shipment) {
+			//	return true;
+			}
 		}
+	
 		// console.log(file[i].shipment)
 
 	}
-}
+	//return false;
 
 function rec(statementObject){
   let rep;
