@@ -101,18 +101,29 @@ function buildReport(file1, file2, file3){
 // finding duplicate indexes in report and logging them or removing
 function findDupIndex(report){
 	let dupList = [];
+// method2
 	for( let i = 0; i < 7; i++){
-		console.log(report[i])
-		for(var j = i; j < 7; j ++){
-			console.log(typeof(report[j]))
-			//if(i != j && report[i].shipment == report[j].shipment) {
-			//	return true;
-			}
+		if(dupList[report[i].shipment] === undefined) {
+			dupList[report[i].shipment] = 1;
+		} else {
+			return true;
 		}
-	
-		// console.log(file[i].shipment)
-
 	}
+	console.log(dupList)
+	return false
+}
+// method1
+	// for( let i = 0; i < 7; i++){
+	// 	console.log(report[i])
+	// 	for(var j = i; j < 7; j ++){
+	// 		console.log(typeof(report[j]))
+	// 		//if(i != j && report[i].shipment == report[j].shipment) {
+	// 		//	return true;
+	// 		}
+	// 	}
+	// 	// console.log(file[i].shipment)
+	//}
+
 	//return false;
 
 function rec(statementObject){
