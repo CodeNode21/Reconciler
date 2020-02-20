@@ -95,16 +95,16 @@ function buildReport(file1, file2, file3){
 	} 
 	// with the statement data in the new constructor, loop though openAp array and find = bls. then fill in the blanks
 	// do the same for 
-	findDup(report);
+	findDupIndex(report);
 	
 }
-function findDup(report){
-
+// finding duplicate indexes in report and logging them or removing
+function findDupIndex(report){
 	let dupList = [];
-	for( let i = 0; i <= 3; i++){
-		console.log(report[i].shipment)
-		for(var j = i; j<= 3; j ++){
-			console.log(report[j].shipment)
+	for( let i = 0; i < 7; i++){
+		console.log(report[i])
+		for(var j = i; j < 7; j ++){
+			console.log(typeof(report[j]))
 			//if(i != j && report[i].shipment == report[j].shipment) {
 			//	return true;
 			}
