@@ -101,6 +101,7 @@ function buildReport(file1, file2, file3){
 // finding duplicate indexes in report and logging them or removing
 function findDupIndex(report){
 	let dupList = [];
+	//method3 sort the array and find adjacent values
 // method2
 	for( let i = 0; i < 7; i++){
 		if(dupList[report[i].shipment] === undefined) {
