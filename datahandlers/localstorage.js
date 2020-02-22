@@ -29,9 +29,6 @@ let lsReport = () => {
 	let payablesArray = toArray(file2);
 	let paidArray = toArray(file3);
 
-	console.log(statementArray);
-	console.log(payablesArray);
-	console.log(paidArray);
 	// displayFile(file2);
 	// displayFile(file3);
 	
@@ -40,15 +37,11 @@ let lsReport = () => {
 	console.log(paidObject[0]);
 	// rec(statementObject)
 	
-	// creates buttons of file fields
-	buttonMaker(statementArray[0]);
-	buttonMaker(payablesArray[0])
-	buttonMaker(paidArray[0]);
 
 	// combines files via object constructor
 	buildReport(statementObject, payablesObject, paidObject)
-
-
+	buttonMaker(report)
+	display(report)
 };
 
 
@@ -103,9 +96,10 @@ function findDupIndex(report){
 	let dupList = [];
 	//method3 sort the array and find adjacent values
 // method2
-	for( let i = 0; i < 7; i++){
+	for( let i = 0; i < 10; i++){
 		if(dupList[report[i].shipment] === undefined) {
 			dupList[report[i].shipment] = 1;
+			console.log(i)
 		} else {
 			return true;
 		}
@@ -127,14 +121,7 @@ function findDupIndex(report){
 
 	//return false;
 
-function rec(statementObject){
-  let rep;
 
-  for (let i = 0; i < statementObject.length; i++){
-    console.log(statementObject[i].blID)
-  }
-  return -1;
-}
 function buttonMaker(arr){ //Creates buttons from a given index 
 	for (var i = 0; i < arr.length; i++){
 		document.getElementById("columnSelect").innerHTML += `<button id="columns"> ${arr[i]} </button>`
@@ -190,6 +177,12 @@ function displayFile(str){ // displays file as table on page
 	
 }
 
+function display(object){
+	for(let i = 0; i < report.length; i ++){
+		
+	}		
+}
+
 function toObject (file1){ //returns an object
 	let jsonObj = [];
 	let statement = file1.split(/\r?\n|\r/);
@@ -204,8 +197,6 @@ function toObject (file1){ //returns an object
 	}
 	JSON.stringify(jsonObj);
 	return jsonObj;
-	
-
 }
 
 function toArray(file) { //returns arrays
@@ -236,52 +227,52 @@ var isVendor = function(data) {
 var vendors = file1.filter(isVendor)
 var otherVendors = file1.reject(isVendor)
 
-// 1 .filter + .reject
-// 2 .map + .find
-// 3 & 4.reduce    = get the totals
-// 5 closures
-// 6 currying 
-// 7 recursion - when a function calls on itself until it doesn't
-// 8 promises
-//Create a tree structure
-// {
-// 	BL
-// }
-// let my_element = document.createElement("<h1>");
-// let my_span = document.createElement("<span>");
+1 .filter + .reject
+2 .map + .find
+3 & 4.reduce    = get the totals
+5 closures
+6 currying 
+7 recursion - when a function calls on itself until it doesn't
+8 promises
+Create a tree structure
+{
+	BL
+}
+let my_element = document.createElement("<h1>");
+let my_span = document.createElement("<span>");
 
-// my_span.innerText = "hello";
-// my_element.appendChild(my_span);
-// document.body.appendChild(my_element);
+my_span.innerText = "hello";
+my_element.appendChild(my_span);
+document.body.appendChild(my_element);
 
-// // find Vendors list array
+// find Vendors list array
 
 
-// // https://developers.google.com/web/fundamentals/primers/promises
+// https://developers.google.com/web/fundamentals/primers/promises
 
-// // Promises notes
-// file1.callThisIf loadedOrWhenLoaded(function() {
-// 	//loaded
-// }).orIfFailedCallThis(function(){
-// 	// failed
-// });
+// Promises notes
+file1.callThisIf loadedOrWhenLoaded(function() {
+	//loaded
+}).orIfFailedCallThis(function(){
+	// failed
+});
 
-// //and 
-// whenAllTheseHaveLoaded([file1, file2, file3]).callThis(function() {
-// //all loaded
-// }).orIfSomeFailedCallThis(function() {
-// //ones or more failed});
+//and 
+whenAllTheseHaveLoaded([file1, file2, file3]).callThis(function() {
+//all loaded
+}).orIfSomeFailedCallThis(function() {
+//ones or more failed});
 
-//    same as 
-// img1.ready().then(function() {
-//   // loaded
-// }, function() {
-//   // failed
-// });
+   same as 
+img1.ready().then(function() {
+  // loaded
+}, function() {
+  // failed
+});
 
-// // and…
-// Promise.all([img1.ready(), img2.ready()]).then(function() {
-//   // all loaded
-// }, function() {
-//   // one or more failed
-// });
+// and…
+Promise.all([img1.ready(), img2.ready()]).then(function() {
+  // all loaded
+}, function() {
+  // one or more failed
+});

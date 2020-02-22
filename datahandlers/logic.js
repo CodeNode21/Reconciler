@@ -34,7 +34,7 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load. No file selected");
+            alert("No file selected");
         }
     }
 	    function readFile2(evt) {
@@ -59,7 +59,7 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load. No file selected");
+            alert("No file selected");
         }
     }
 	    function readFile3(evt) {
@@ -86,7 +86,7 @@ $(document).ready(function(){
             }
             r.readAsText(f);
         } else {
-            alert("Failed to load. No file selected");
+            alert("No file selected");
         }
     }
 })
