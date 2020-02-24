@@ -202,7 +202,6 @@ function toObject (file1){ //returns an object
 function toArray(file) { //returns arrays
 	let allTextLines = file.split(/\r?\n|\r/);
 	fileArray = [];
-	
 	for (let i = 0; i < allTextLines.length; i++) {
 		let row = allTextLines[i].split(',');
 		let col = []; 
