@@ -181,14 +181,20 @@ function display(object){
 	let table = '<table>';
 	table = '<thead>';
 	table = '<tbody>'
-	for(let i = 0; i < report.length; i ++){
-		console.log(typeof(report[i].shipment));
+	for(let i = 0; i < object.length; i ++){
+		console.log(typeof(object[i].shipment));
 		table += '<tr>';
-		table += report[i].shipment;
+		table += '<td>';
+		table += object[i].shipment;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].invoice;
+		table += '</td>';
 		table += '</tr>';
 	}
 	table += '</tbody>';
 	table += '</thead>';
+	table += '</table>'
 	$("#reportArea").append(table);
 }
 
