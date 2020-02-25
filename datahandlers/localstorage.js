@@ -40,8 +40,7 @@ let lsReport = () => {
 
 	// combines files via object constructor
 	buildReport(statementObject, payablesObject, paidObject)
-	buttonMaker(report)
-	display(report)
+
 };
 
 
@@ -90,6 +89,7 @@ function buildReport(file1, file2, file3){
 	// do the same for 
 	findDupIndex(report);
 	
+	display(report);
 }
 // finding duplicate indexes in report and logging them or removing
 function findDupIndex(report){
@@ -178,9 +178,18 @@ function displayFile(str){ // displays file as table on page
 }
 
 function display(object){
+	let table = '<table>';
+	table = '<thead>';
+	table = '<tbody>'
 	for(let i = 0; i < report.length; i ++){
-		
-	}		
+		console.log(typeof(report[i].shipment));
+		table += '<tr>';
+		table += report[i].shipment;
+		table += '</tr>';
+	}
+	table += '</tbody>';
+	table += '</thead>';
+	$("#reportArea").append(table);
 }
 
 function toObject (file1){ //returns an object
@@ -213,65 +222,3 @@ function toArray(file) { //returns arrays
 	}
 	return fileArray;
 }
-
-// first way
-var vendorsList = file1.filter(function(data) {
-	return data.vendor === 'APLU';
-	// returns new filter array for vendors 
-})
-// second way
-var isVendor = function(data) {
-	return data.vendor === 'APLU'
-}
-var vendors = file1.filter(isVendor)
-var otherVendors = file1.reject(isVendor)
-
-1 .filter + .reject
-2 .map + .find
-3 & 4.reduce    = get the totals
-5 closures
-6 currying 
-7 recursion - when a function calls on itself until it doesn't
-8 promises
-Create a tree structure
-{
-	BL
-}
-let my_element = document.createElement("<h1>");
-let my_span = document.createElement("<span>");
-
-my_span.innerText = "hello";
-my_element.appendChild(my_span);
-document.body.appendChild(my_element);
-
-// find Vendors list array
-
-
-// https://developers.google.com/web/fundamentals/primers/promises
-
-// Promises notes
-file1.callThisIf loadedOrWhenLoaded(function() {
-	//loaded
-}).orIfFailedCallThis(function(){
-	// failed
-});
-
-//and 
-whenAllTheseHaveLoaded([file1, file2, file3]).callThis(function() {
-//all loaded
-}).orIfSomeFailedCallThis(function() {
-//ones or more failed});
-
-   same as 
-img1.ready().then(function() {
-  // loaded
-}, function() {
-  // failed
-});
-
-// and…
-Promise.all([img1.ready(), img2.ready()]).then(function() {
-  // all loaded
-}, function() {
-  // one or more failed
-});
