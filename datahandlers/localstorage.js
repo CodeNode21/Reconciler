@@ -179,8 +179,13 @@ function displayFile(str){ // displays file as table on page
 
 function display(object){
 	let table = '<table>';
-	table = '<thead>';
-	table = '<tbody>'
+	table += '<thead>';
+	table += '<tbody>';
+	table += '<tr>';
+	for (let i =0; i < object[0]length; i++){
+		table += '<th>';
+		table += JSON.stringify(object[0]);
+		table += </th>';
 	for(let i = 0; i < object.length; i ++){
 		console.log(typeof(object[i].shipment));
 		table += '<tr>';
@@ -189,6 +194,51 @@ function display(object){
 		table += '</td>';
 		table += '<td>';
 		table += object[i].invoice;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].dueDate;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].invAmt;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].owed;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].vendor;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].houseFile;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].apBl;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].received;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].amtEntered;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paymentNo;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paymentDate;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paymentAmt;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paidVendorID;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paidFileId;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paidBlId;
+		table += '</td>';
+		table += '<td>';
+		table += object[i].paidAmount;
 		table += '</td>';
 		table += '</tr>';
 	}
