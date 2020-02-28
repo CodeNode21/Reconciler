@@ -175,7 +175,6 @@ function displayFile(str){ // displays file as table on page
 	table += '</table>';
 	$("#reportArea").append(table);
 	
-	
 }
 
 function display(object){
@@ -183,9 +182,11 @@ function display(object){
 	table += '<thead>';
 	table += '<tbody>';
 	table += '<tr>';
-	for(let i = 0; i < (object[0]).length; i++){
+	for(let i = 0; i < object.length; i++){
+		console.log("Works!!");
 		table += '<th>';
-		table += JSON.stringify(object[0]);
+		table += JSON.stringify(object[0][i]);
+		console.log(JSON.stringify(object[0]));
 		table += '</th>';
 	}
 	for(let i = 0; i < object.length; i ++){
