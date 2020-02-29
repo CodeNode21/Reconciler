@@ -186,6 +186,7 @@ function display(object, stat){
 		table += '<th>';
 		table += headers[i];
 		table += '</th>';
+		
 	}
 	for(let i = 0; i < object.length; i ++){
 		console.log(typeof(object[i].shipment));
