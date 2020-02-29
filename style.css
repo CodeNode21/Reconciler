@@ -88,6 +88,11 @@ body {
 }
 */
 
+.container1{
+		border: 1px solid blue;
+		margin: 1px 25px;
+		
+}
 .wrapper {
 
 	display: grid;
@@ -131,7 +136,11 @@ td, th {
   text-align: left;
 }
 
-
+#reportArea{
+	width: auto;
+	padding: 10px;
+		border: 1px solid red;
+}
 
 /*
 #columns{
@@ -140,10 +149,7 @@ td, th {
 	BACKGROUND: #112233;
 }
 
-#reportArea{
-	height: 500px;
-	padding: 10px;
-}
+
 
 .jumbotron{
 	background: #FFEFBA;  /* fallback for old browsers 

@@ -19,6 +19,7 @@ currentLocalStorage = () => {
 }
 
 let lsReport = () => {
+	report = [];
 	// creates objects from files
 	const statementObject = toObject(file1);
 	const payablesObject = toObject(file2);
@@ -28,9 +29,6 @@ let lsReport = () => {
 	let statementArray = toArray(file1);
 	let payablesArray = toArray(file2);
 	let paidArray = toArray(file3);
-
-	// displayFile(file2);
-	// displayFile(file3);
 	
 	console.log(statementObject[0]);
 	console.log(payablesObject[0]);
@@ -89,7 +87,7 @@ function buildReport(file1, file2, file3){
 	// do the same for 
 	findDupIndex(report);
 	
-	display(report);
+	display(report, "Past Due");
 }
 // finding duplicate indexes in report and logging them or removing
 function findDupIndex(report){
@@ -177,16 +175,16 @@ function displayFile(str){ // displays file as table on page
 	
 }
 
-function display(object){
-	let table = '<table>';
+function display(object, stat){
+	let sta = stat;
+	let table = '<table>' + stat;
 	table += '<thead>';
 	table += '<tbody>';
 	table += '<tr>';
-	for(let i = 0; i < object.length; i++){
-		console.log("Works!!");
+	let headers = Object.keys(object[0]);
+	for (let i =0; i < headers.length; i++){
 		table += '<th>';
-		table += JSON.stringify(object[0][i]);
-		console.log(JSON.stringify(object[0]));
+		table += headers[i];
 		table += '</th>';
 	}
 	for(let i = 0; i < object.length; i ++){
