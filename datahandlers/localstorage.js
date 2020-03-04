@@ -136,46 +136,6 @@ function buttonMaker(arr){ //Creates buttons from a given index
 	//`
 }
 
-function displayFile(str){ // displays file as table on page
-	// creates an array out of the csv str
-	// let allRows = str.split(/\r?\n|\r/);
-
-	let allRows = str;
-
-	// Creates table components
-	let table = '<table>';
-	for (let singleRow = 0; singleRow < allRows.length; singleRow++){
-		if(singleRow ===0) {
-			table += '<thead>';
-			table += '<tr>';
-		} else {
-			table += '<tr>';
-		}
-		let rowCells = allRows[singleRow].split(',');
-		for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
-			if(singleRow === 0) {
-				table += '<th>';
-				table += rowCells[rowCell];
-				table += '</th>';
-			} else {
-				table += '<td>';
-				table += rowCells[rowCell];
-				table += '</td>';
-			}
-		}
-		if (singleRow === 0) {
-			table += '</tr>';
-			table += '</thead>';
-		} else {
-			table += '</tr>';
-		}
-	}
-	table += '</tbody>';
-	table += '</table>';
-	$("#reportArea").append(table);
-	
-}
-
 function display(object, stat){
 	let sta = stat;
 	let table = '<table>' + stat;
