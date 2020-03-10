@@ -34,7 +34,7 @@ let lsReport = () => {
 	console.log(payablesObject[0]);
 	console.log(paidObject[0]);
 	// rec(statementObject)
-	
+	findDupIndex(report);
 
 	// combines files via object constructor
 	buildReport(statementObject, payablesObject, paidObject)
@@ -86,18 +86,23 @@ function buildReport(file1, file2, file3){
 	} 
 	// with the statement data in the new constructor, loop though openAp array and find = bls. then fill in the blanks
 	// do the same for 
-	findDupIndex(report);
 	
+	findDataRows(report)
 	display(report, "Past Due");
 }
 // finding duplicate indexes in report and logging them or removing
-function findDupIndex(report){
+function findDataRows(obj){
+		data = obj
+		
+}
+
+function findDupIndex(obj){
 	let dupList = [];
 	//method3 sort the array and find adjacent values
 // method2
 	for( let i = 0; i < 10; i++){
-		if(dupList[report[i].shipment] === undefined) {
-			dupList[report[i].shipment] = 1;
+		if(dupList[obj[i]] === undefined) {
+			dupList[obj[i]] = 1;
 			console.log(i)
 		} else {
 			return true;
