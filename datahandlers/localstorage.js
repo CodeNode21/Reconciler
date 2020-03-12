@@ -93,8 +93,13 @@ function buildReport(file1, file2, file3){
 }
 // finding duplicate indexes in report and logging them or removing
 function findDataRows(obj){
-		data = obj
+		data = obj;
+		let seen = {};
 		console.log(data[0])
+		return obj.filter(function(item) {
+			return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+		});
+		console.log(seen);
 }
 
 function findDupIndex(obj){
