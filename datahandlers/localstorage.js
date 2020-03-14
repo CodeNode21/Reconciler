@@ -40,6 +40,7 @@ let lsReport = () => {
 	// combines files via object constructor
 	buildReport(statementObject, payablesObject, paidObject)
 
+	 
 	
 };
 
